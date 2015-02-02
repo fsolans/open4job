@@ -190,4 +190,24 @@ public class IngresoCorrienteVO {
 		this.derechosPendientesCobro = derechosPendientesCobro;
 	}
 
+	public String toString() {
+
+		return ("IngresoCorrienteVO  = [ " + "aplicacion = " + aplicacion
+				+ ", " + ", derechosCancelados = " + derechosCancelados + ", "
+				+ ", excesoDefectoPrevision = " + excesoDefectoPrevision + ", "
+				+ ", derechosReconocidosNetos = " + derechosReconocidosNetos
+				+ ", " + ", previsionModificacion = " + previsionModificacion
+				+ ", " + ", derechosReconocidos = " + derechosReconocidos
+				+ ", " + ", id = " + id + ", " + ", recaudacionNeta = "
+				+ recaudacionNeta + ", " + ", fecha = " + fecha + ", "
+				+ ", previsionInicial = " + previsionInicial + ", "
+				+ ", concepto = " + concepto + ", " + ", idCapitulo = "
+				+ idCapitulo + ", " + ", capitulo = " + capitulo + ", "
+				+ ", derechosAnuladosYDevoluciones = "
+				+ derechosAnuladosYDevoluciones + ", "
+				+ ", previsionDefinitivo = " + previsionDefinitivo + ", "
+				+ ", derechosPendientesCobro = " + derechosPendientesCobro + " ]");
+
+	}
+
 }

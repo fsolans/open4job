@@ -213,7 +213,7 @@ public class GastoCorrienteVO {
 
 	public String toString() {
 
-		return ("GastoCorrienteVO  = [" + "obligacionPendientePago = "
+		return ("GastoCorrienteVO  = [ " + "obligacionPendientePago = "
 				+ obligacionPendientePago + ", " + "creditoModificacion = "
 				+ creditoModificacion + ", " + ", organo = " + organo + ", "
 				+ ", obligacionNeta = " + obligacionNeta + ", "

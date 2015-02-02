@@ -21,7 +21,7 @@ public class GastoCorrienteDAO extends GenericDAO {
 		super(driver, url, user, password);
 	}
 
-	// Listado de gastos
+	// Obtener todos los listado de gastos
 	public List<GastoCorrienteVO> getListadoGastos() {
 
 		List<GastoCorrienteVO> gastos = new ArrayList<GastoCorrienteVO>();
@@ -29,11 +29,8 @@ public class GastoCorrienteDAO extends GenericDAO {
 		String query = "SELECT OBLIGACION_PENDIENTE_PAGO, CREDITO_MODIFICACION, ORGANO, ID_ORGANO, "
 				+ " OBLIGACION_NETA, ID, FECHA, CONCEPTO, PARTIDA, ID_CAPITULO, CREDITO_DEFINITIVO, "
 				+ " CAPITULO, CREDITO_INICIAL, ID_AREA, ID_AREA, PAGO_NETO, GASTO_COMPROMETIDO, "
-				+ " REMANENTE_DE_CREDITO, AREA " 
-				+ " FROM PRESUPUESTO_GASTO";
+				+ " REMANENTE_DE_CREDITO, AREA " + " FROM PRESUPUESTO_GASTO";
 
-		//String query = "SELECT *  FROM PRESUPUESTO_GASTO";
-		
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -108,11 +105,78 @@ public class GastoCorrienteDAO extends GenericDAO {
 	}
 
 	// Obtiene los datos de un registro en concreto
-	public GastoCorrienteVO getDatosGasto(int idGasto) {
+	public GastoCorrienteVO getDatosGasto(String idGasto) {
 
 		GastoCorrienteVO gasto = null;
 
-		// TODO
+		String query = "SELECT OBLIGACION_PENDIENTE_PAGO, CREDITO_MODIFICACION, ORGANO, ID_ORGANO, "
+				+ " OBLIGACION_NETA, ID, FECHA, CONCEPTO, PARTIDA, ID_CAPITULO, CREDITO_DEFINITIVO, "
+				+ " CAPITULO, CREDITO_INICIAL, ID_AREA, ID_AREA, PAGO_NETO, GASTO_COMPROMETIDO, "
+				+ " REMANENTE_DE_CREDITO, AREA "
+				+ " FROM PRESUPUESTO_GASTO WHERE id= '" + idGasto + "'";
+
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			this.abrirConexion();
+
+			stmt = connection.createStatement();
+
+			rs = stmt.executeQuery(query);
+
+			rs.next();
+			
+			float obligacionPendientePago = rs.getFloat(1);
+			float creditoModificacion = rs.getFloat(2);
+			String organo = rs.getString(3);
+			String idOrgano = rs.getString(4);
+			float obligacionNeta = rs.getFloat(5);
+			String id = rs.getString(6);
+			String fecha = rs.getString(7);
+			String concepto = rs.getString(8);
+			String partida = rs.getString(9);
+			int idCapitulo = rs.getInt(10);
+			float creditoDefinitivo = rs.getFloat(11);
+			String capitulo = rs.getString(12);
+			float creditoInicial = rs.getFloat(13);
+			String idArea = rs.getString(14);
+			float pagoNeto = rs.getFloat(15);
+			float gastoComprometido = rs.getFloat(16);
+			float remanenteDeCredito = rs.getFloat(17);
+			String area = rs.getString(18);
+
+			gasto = new GastoCorrienteVO(obligacionPendientePago,
+					creditoModificacion, organo, obligacionNeta, idOrgano, id,
+					fecha, concepto, partida, idCapitulo, creditoDefinitivo,
+					capitulo, creditoInicial, idArea, pagoNeto,
+					gastoComprometido, remanenteDeCredito, area);
+
+		} catch (ClassNotFoundException e) {
+			logger.log(Level.SEVERE,
+					"ClassNotFoundException : " + e.getMessage());
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE, "SQLException : " + e.getMessage());
+		} finally {
+
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (Exception e) {
+				}
+			}
+
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+				}
+			}
+
+		}
+
+		this.cerrarConexion();
 
 		return gasto;
 
