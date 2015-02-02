@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>MiPrimerServlet</servlet-name>
+  	<display-name>MiPrimerServlet</display-name>
+  	<description></description>
+  	<servlet-class>es.open4job.web.MiPrimerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MiPrimerServlet</servlet-name>
+  	<url-pattern>/MiPrimerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

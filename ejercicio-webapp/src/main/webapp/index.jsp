@@ -1,5 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Ejercicio de Servlets</h2>
+<a href="./MiPrimerServlet">Ir a servlet b&aacute;sico</a>
 </body>
 </html>
