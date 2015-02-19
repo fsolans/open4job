@@ -1,0 +1,11 @@
+<Context>  
+
+	<Resource auth="Container"
+   		name="jdbc/open4job"
+   		driverClassName="com.mysql.jdbc.Driver"
+   		type="javax.sql.DataSource"
+   		url="jdbc:mysql://localhost:3306/open4job"
+   		username="root" 
+   		password="" />
+
+</Context>    
