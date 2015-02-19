@@ -1,4 +1,4 @@
-package es.open4job.ejercicio.modelo;
+package es.open4job.ejercicio.model;
 
 import java.util.List;
 
