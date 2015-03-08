@@ -79,8 +79,8 @@
 
 		<!-- We depend on the EJB remote business interfaces of this application -->
 		<dependency>
-			<groupId>es.open4job.ejb3.stateless</groupId>
-			<artifactId>ejercicio-ejb3-stateless</artifactId>
+			<groupId>es.open4job.ejb3</groupId>
+			<artifactId>ejercicio-ejb3-stateful</artifactId>
 			<type>ejb-client</type>
 			<version>${project.version}</version>
 		</dependency>

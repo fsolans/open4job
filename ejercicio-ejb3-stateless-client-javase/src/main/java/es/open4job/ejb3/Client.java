@@ -2,7 +2,8 @@ package es.open4job.ejb3;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
-import es.open4job.ejb3.stateless.HelloWorld;
+
+import es.open4job.ejb3.stateful.HelloWorld;
 
 public class Client {
 
@@ -43,7 +44,7 @@ public class Client {
 		 * The module name is the JAR name of the deployed EJB without the .jar
 		 * suffix.
 		 */
-		String moduleName = "ejercicio-ejb3-stateless";
+		String moduleName = "ejercicio-ejb3-stateful";
 
 		/*
 		 * AS7 allows each deployment to have an (optional) distinct name. This
