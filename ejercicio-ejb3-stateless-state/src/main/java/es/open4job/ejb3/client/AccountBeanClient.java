@@ -12,7 +12,7 @@ public class AccountBeanClient implements Runnable {
 	public static void main(String[] args) {
 	
 		AccountBeanClient obj1 = new AccountBeanClient();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 50; i++) {
 			Thread t1 = new Thread(obj1, "T" + i);
 			t1.start();
 		}
@@ -41,11 +41,15 @@ public class AccountBeanClient implements Runnable {
 	
 		Context context = null;
 		Account bean = null;
+		
 		try {
+			
 			// 1. Obtaining Context
 			context = JNDILookupClass.getInitialContext();
+		
 			// 2. Generate JNDI Lookup name
 			String lookupName = getLookupName();
+			
 			// 3. Lookup and cast
 			bean = (Account) context.lookup(lookupName);
 
@@ -58,19 +62,7 @@ public class AccountBeanClient implements Runnable {
 	}
 
 	private static String getLookupName() {
-	
-
-		/*
-		java:global/ejercicio-ejb3-stateless-state/AccountBean!es.open4job.ejb3.stateless.Account
-		java:app/ejercicio-ejb3-stateless-state/AccountBean!es.open4job.ejb3.stateless.Account
-		java:module/AccountBean!es.open4job.ejb3.stateless.Account
-		java:jboss/exported/ejercicio-ejb3-stateless-state/AccountBean!es.open4job.ejb3.stateless.Account
-		java:global/ejercicio-ejb3-stateless-state/AccountBean
-		java:app/ejercicio-ejb3-stateless-state/AccountBean
-		java:module/AccountBean
-
-		*/
-		
+			
 		/*
 		 * The app name is the EAR name of the deployed EJB without .ear suffix.
 		 * Since we haven't deployed the application as a .ear, the app name for
@@ -95,9 +87,9 @@ public class AccountBeanClient implements Runnable {
 		final String interfaceName = Account.class.getName();
 
 		// Create a look up string name
-		String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName
-				+ "/" + beanName + "!" + interfaceName;
-
+        String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName
+                + "/" + beanName + "!" + interfaceName;
+ 
 		return name;
 
 	}
