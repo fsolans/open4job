@@ -14,29 +14,9 @@ import es.open4job.ejb3.stateless.HelloWorld;
 public class MiPrimerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	//@EJB(mappedName = "java:global/HelloWorldSessionBean/HelloWorldBean!com.theopentutorials.business.HelloWorld")
 	
 	@EJB(mappedName = "java:global/ejercicio-ejb3-stateless-client-injection/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld")
 	HelloWorld bean;
-
-	
-	/*
-	
-  
-	java:global/ejercicio-ejb3-stateless-client-injection/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-	java:app/ejercicio-ejb3-stateless-client-injection/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-	java:module/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-	java:jboss/exported/ejercicio-ejb3-stateless-client-injection/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-	java:global/ejercicio-ejb3-stateless-client-injection/HelloWorldBean
-	java:app/ejercicio-ejb3-stateless-client-injection/HelloWorldBean
-	java:module/HelloWorldBean
-	
-	 */
-	
-	// EJB3.1 look up naming convention
-	// @EJB(mappedName = “ejb:/HelloWorldSessionBean//HelloWorldBean!com.theopentutorials.business.HelloWorld”)
-	// @EJB(mappedName = “java:global/HelloWorldSessionBean/HelloWorldBean”)
 	
 	public MiPrimerServlet() {
 		super();
