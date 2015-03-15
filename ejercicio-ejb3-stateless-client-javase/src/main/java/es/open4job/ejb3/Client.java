@@ -3,7 +3,7 @@ package es.open4job.ejb3;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
-import es.open4job.ejb3.stateful.HelloWorld;
+import es.open4job.ejb3.stateless.HelloWorld;
 
 public class Client {
 
@@ -18,18 +18,24 @@ public class Client {
 		
 		Context context = null;
 		HelloWorld bean = null;
+		
 		try {
+		
 			// 1. Obtaining Context
 			context = ClientUtility.getInitialContext();
+			
 			// 2. Generate JNDI Lookup name
 			String lookupName = getLookupName();
+			
 			// 3. Lookup and cast
 			bean = (HelloWorld) context.lookup(lookupName);
 
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
+		
 		return bean;
+	
 	}
 
 	private static String getLookupName() {
@@ -44,7 +50,7 @@ public class Client {
 		 * The module name is the JAR name of the deployed EJB without the .jar
 		 * suffix.
 		 */
-		String moduleName = "ejercicio-ejb3-stateful";
+		String moduleName = "ejercicio-ejb3-stateless";
 
 		/*
 		 * AS7 allows each deployment to have an (optional) distinct name. This
@@ -54,19 +60,6 @@ public class Client {
 
 		// The EJB bean implementation class name
 		String beanName = "HelloWorldBean";
-
-		
-		/*
-		
-	    java:global/ejercicio-ejb3-stateless/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-		java:app/ejercicio-ejb3-stateless/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-		java:module/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-		java:jboss/exported/ejercicio-ejb3-stateless/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld
-		java:global/ejercicio-ejb3-stateless/HelloWorldBean
-		java:app/ejercicio-ejb3-stateless/HelloWorldBean
-		java:module/HelloWorldBean
-		
-		 */
 		
 		// Fully qualified remote interface name
 		final String interfaceName = "es.open4job.ejb3.stateless.HelloWorld";

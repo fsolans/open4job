@@ -7,12 +7,11 @@
 	<artifactId>ejercicio-ejb3-stateless-client-javase</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>ejercicio-ejb3-stateless-client-javase-client-javase</name>
+	<name>ejercicio-ejb3-stateless-client-javase</name>
 	<packaging>jar</packaging>
 
 	<properties>
-		<!-- Explicitly declaring the source encoding eliminates the following 
-			message: -->
+		<!-- Explicitly declaring the source encoding eliminates the following message: -->
 		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
 			resources, i.e. build is platform dependent! -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,6 +60,14 @@
 
 	<dependencies>
 
+		<!-- We depend on the EJB remote business interfaces of this application --> 
+		<dependency>
+			<groupId>es.open4job.ejb3</groupId>
+			<artifactId>ejercicio-ejb3-stateless</artifactId>
+			<type>ejb-client</type>
+			<version>${project.version}</version>
+		</dependency>
+		
 		<!-- Import the transaction spec API, we use runtime scope because we aren't 
 			using any direct reference to the spec API in our client code -->
 		<dependency>
@@ -75,14 +82,6 @@
 			<groupId>org.jboss.spec.javax.ejb</groupId>
 			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-
-		<!-- We depend on the EJB remote business interfaces of this application -->
-		<dependency>
-			<groupId>es.open4job.ejb3</groupId>
-			<artifactId>ejercicio-ejb3-stateful</artifactId>
-			<type>ejb-client</type>
-			<version>${project.version}</version>
 		</dependency>
 
 		<!-- JBoss EJB client API jar. We use runtime scope because the EJB client 
