@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.open4job.ejb3.stateless.HelloWorld;
 
-public class MiPrimerServlet extends HttpServlet {
+public class CallEJBServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	@EJB(mappedName = "java:global/ejercicio-ejb3-stateless-client-injection/HelloWorldBean!es.open4job.ejb3.stateless.HelloWorld")
 	HelloWorld bean;
 	
-	public MiPrimerServlet() {
+	public CallEJBServlet() {
 		super();
 	}
 
