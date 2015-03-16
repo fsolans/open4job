@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Ejercicio de Servlets</h2>
-<a href="./MiPrimerServlet">Ir a servlet b&aacute;sico</a>
+<h2>Ejercicio de EJB3 llamado desde un Servlet por inyección</h2>
+<a href="./CallEJBFromServlet">Ir al ejemplo</a>
 </body>
 </html>

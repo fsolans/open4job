@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.open4job.ejb3.stateless.HelloWorldBean;
 
-public class MiPrimerServlet extends HttpServlet {
+public class CallEJBFromServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +31,7 @@ public class MiPrimerServlet extends HttpServlet {
 	// @EJB(mappedName = “ejb:/HelloWorldSessionBean//HelloWorldBean!com.theopentutorials.business.HelloWorld”)
 	// @EJB(mappedName = “java:global/HelloWorldSessionBean/HelloWorldBean”)
 	
-	public MiPrimerServlet() {
+	public CallEJBFromServlet() {
 		super();
 	}
 
